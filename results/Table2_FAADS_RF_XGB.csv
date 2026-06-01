@@ -1,0 +1,6 @@
+Disruption Pattern,Detected Cases,Precision (RF),Recall (RF),F1-score (RF),Precision (XGBoost),Recall (XGBoost),F1-score (XGBoost)
+Normal,117,1.0,0.974,0.987,0.991,0.983,0.987
+P1,116,0.895,0.957,0.925,0.924,0.94,0.932
+P2,117,0.983,0.991,0.987,0.975,0.983,0.979
+P3,117,0.945,0.88,0.912,0.938,0.906,0.922
+P4,116,0.983,1.0,0.991,0.983,1.0,0.991
