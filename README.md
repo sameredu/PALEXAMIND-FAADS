@@ -218,5 +218,5 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 ## Acknowledgements
 
-This work is part of the **EXAMIND PhD Project** at the Islamic University of Gaza (IUG).  
+This work is part of the **PALEXAMIND PhD Project** at the Islamic University of Gaza (IUG) and University College of Applied Sciences (UCAS), Gaza, Palestine.  
 Dataset DOI: [10.5281/zenodo.20366538](https://doi.org/10.5281/zenodo.20366538)
