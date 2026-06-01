@@ -6,7 +6,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20366538.svg)](https://doi.org/10.5281/zenodo.20366538)
 [![Dataset](https://img.shields.io/badge/Dataset-Zenodo-orange)](https://doi.org/10.5281/zenodo.20366538)
 
-**Part of the EXAMIND PhD Project** — Islamic University of Gaza (IUG) / UCAS, Palestine
+**Part of the PALEXAMIND PhD Project** — Islamic University of Gaza (IUG) / University College of Applied Sciences (UCAS), Gaza, Palestine
 
 ---
 
@@ -207,6 +207,7 @@ Islamic University of Gaza (IUG), Computer Engineering Dept.
 
 **Prof. Aiman Ahmed AbuSamra** — PhD Supervisor  
 Islamic University of Gaza (IUG), Computer Engineering Dept., Palestine
+✉ aasamra@iugaza.edu.ps
 
 ---
 
