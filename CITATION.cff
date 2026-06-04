@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+
+type: software
+
+title: "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations"
+
+authors:
+
+* family-names: "Yaghi"
+  given-names: "Samer"
+  email: "[syaghi@ucas.edu.ps](mailto:syaghi@ucas.edu.ps)"
+  orcid: "https://orcid.org/0009-0001-0268-7163"
+  affiliation: "University College of Applied Sciences (UCAS), Gaza, Palestine"
+
+* family-names: "AbuSamra"
+  given-names: "Aiman Ahmed"
+  email: "[aasamra@iugaza.edu.ps](mailto:aasamra@iugaza.edu.ps)"
+  affiliation: "Islamic University of Gaza, Palestine"
+
+repository-code: "https://github.com/sameredu/PALEXAMIND-FAADS"
+
+url: "https://github.com/sameredu/PALEXAMIND-FAADS"
+
+license: "MIT"
+
+version: "1.0.0"
+
+date-released: "2026-06-03"
+
+keywords:
+
+* Learning Analytics
+* Educational Fairness
+* E-Examinations
+* Moodle
+* Random Forest
+* XGBoost
+* Behavioral Fairness Index
+* Digital Equity
+* PALEXAMIND
+* FAADS
+
+preferred-citation:
+type: article
+authors:
+- family-names: "Yaghi"
+given-names: "Samer"
+- family-names: "AbuSamra"
+given-names: "Aiman Ahmed"
+title: "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations"
+year: 2026
