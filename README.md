@@ -133,15 +133,14 @@ df = pd.read_csv('results/processed_features_real.csv')
 X = df[['IGV', 'IL', 'SER', 'BFD', 'RIF']]
 y = df['Label']
 
-# BFI calculation
+## 🧮 Behavioral Fairness Index (BFI) calculation
+
 alpha, beta, gamma = 0.33, 0.33, 0.34
 # BFI_i = alpha*P_i + beta*R_i + gamma*(1 - BFD_i)
 ```
-## 🧮 Behavioral Fairness Index (BFI)
 
-```math
-# BFI_i = 0.33·P_i + 0.33·R_i + 0.34·(1 − BFD_i)
----
+
+
 
 ## Dataset
 
