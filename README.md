@@ -172,6 +172,13 @@ If you use this code, please cite:
   note      = {Part of the EXAMIND PhD Project, IUG/UCAS, Palestine}
 }
 ```
+## How to Cite
+
+If you use this software, please cite:
+
+Yaghi, S., & AbuSamra, A. A. (2026).
+PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations (Version 1.0.0) [Software].
+Zenodo. https://doi.org/10.5281/zenodo.20538921
 
 **Companion Paper:**
 ```bibtex
