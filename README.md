@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20366538.svg)](https://doi.org/10.5281/zenodo.20366538)
 [![Dataset](https://img.shields.io/badge/Dataset-Zenodo-orange)](https://doi.org/10.5281/zenodo.20366538)
+[![Software](https://zenodo.org/badge/DOI/10.5281/zenodo.20538921.svg)](https://doi.org/10.5281/zenodo.20538921)
 ## DOI (Citable Software)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20538921.svg)](https://doi.org/10.5281/zenodo.20538921)
