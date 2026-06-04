@@ -135,7 +135,10 @@ y = df['Label']
 alpha, beta, gamma = 0.33, 0.33, 0.34
 # BFI_i = alpha*P_i + beta*R_i + gamma*(1 - BFD_i)
 ```
+## 🧮 Behavioral Fairness Index (BFI)
 
+```math
+BFI_i = 0.33·P_i + 0.33·R_i + 0.34·(1 − BFD_i)
 ---
 
 ## Dataset
@@ -162,14 +165,11 @@ The DWEB 1318 dataset is available on Zenodo:
 If you use this code, please cite:
 
 ```bibtex
-@software{yaghi_2026_palexamind_faads,
-  author    = {Yaghi, Samer and AbuSamra, Aiman Ahmed},
-  title     = {{PALEXAMIND-FAADS: Python Implementation for AI-Driven
-                Automated Fairness Intervention in E-Examinations}},
-  year      = 2026,
-  publisher = {GitHub},
-  url       = {https://github.com/sameredu/PALEXAMIND-FAADS},
-  note      = {Part of the EXAMIND PhD Project, IUG/UCAS, Palestine}
+@software{yaghi2026faads,
+  author = {Yaghi, Samer and AbuSamra, Aiman Ahmed},
+  title  = {PALEXAMIND-FAADS: AI-Driven Fairness Intervention System},
+  year   = {2026},
+  url    = {https://doi.org/10.5281/zenodo.20538921}
 }
 ```
 ## How to Cite
@@ -201,7 +201,8 @@ Zenodo. https://doi.org/10.5281/zenodo.20538921
              Inequality in Moodle-Based E-Examinations},
   journal = {Computers \& Education},
   year    = {2026},
-  doi     = {10.5281/zenodo.20366538}
+  doi     = {10.5281/zenodo.20366538},
+  url     ={https://doi.org/10.5281/zenodo.20366538}
 }
 ```
 
