@@ -140,7 +140,7 @@ alpha, beta, gamma = 0.33, 0.33, 0.34
 ## 🧮 Behavioral Fairness Index (BFI)
 
 ```math
-BFI_i = 0.33·P_i + 0.33·R_i + 0.34·(1 − BFD_i)
+# BFI_i = 0.33·P_i + 0.33·R_i + 0.34·(1 − BFD_i)
 ---
 
 ## Dataset
