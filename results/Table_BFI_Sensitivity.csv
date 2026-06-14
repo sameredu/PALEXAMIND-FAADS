@@ -1,0 +1,4 @@
+Weight Configuration,alpha (P_i),beta (R_i),gamma (1-BFD_i),Automatic (%),Instructor Review (%),No Action (%),Mean BFI,Std BFI
+Original (0.33/0.33/0.34),0.33,0.33,0.34,81.5,15.6,3.0,0.856,0.102
+Performance-weighted (0.50/0.25/0.25),0.5,0.25,0.25,84.6,11.7,3.7,0.877,0.105
+Balanced-moderate (0.40/0.30/0.30),0.4,0.3,0.3,83.6,13.5,3.0,0.865,0.102

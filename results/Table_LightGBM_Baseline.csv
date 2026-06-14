@@ -1,0 +1,4 @@
+Model,Accuracy,Weighted_F1,CV_F1_mean,CV_F1_std
+Random Forest,96.05,0.96,0.95,0.01
+XGBoost,96.23,0.962,0.963,0.01
+LightGBM,96.57,0.966,0.962,0.007

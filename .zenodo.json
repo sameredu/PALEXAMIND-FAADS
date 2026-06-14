@@ -1,6 +1,6 @@
 {
 "title": "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations",
-"description": "PALEXAMIND-FAADS is a reproducible research software package accompanying Paper 2 of the PALEXAMIND PhD Project. The framework provides an infrastructure-aware and fairness-aware intervention system for Moodle-based e-examinations. It includes data preprocessing, behavioral feature engineering, Random Forest and XGBoost classification models, the Behavioral Fairness Index (BFI), Smart Validation Engine (SVE), cross-validation experiments, ablation studies, and automated generation of all tables and figures reported in the paper.",
+"description": "PALEXAMIND-FAADS is a reproducible research software package accompanying Paper 2 of the PALEXAMIND PhD Project. The framework provides an infrastructure-aware and fairness-aware intervention system for Moodle-based e-examinations. It includes data preprocessing, behavioral feature engineering, Random Forest, XGBoost, and LightGBM classification models, the Behavioral Fairness Index (BFI), Smart Validation Engine (SVE), cross-validation experiments, ablation studies, BFI weight sensitivity analysis, SHAP-based interpretability analysis, and automated generation of all tables and figures reported in the paper. Version 1.2 adds an additional LightGBM baseline, a SHAP summary analysis, and a BFI weight sensitivity study.",
 "creators": [
 {
 "name": "Yaghi, Samer",
@@ -9,7 +9,8 @@
 },
 {
 "name": "AbuSamra, Aiman Ahmed",
-"affiliation": "Islamic University of Gaza, Palestine"
+"affiliation": "Islamic University of Gaza, Palestine",
+"orcid": "0000-0003-4652-3993"
 }
 ],
 "license": "MIT",
@@ -24,12 +25,14 @@
 "E-Examinations",
 "Random Forest",
 "XGBoost",
+"LightGBM",
+"SHAP",
 "Behavioral Fairness Index",
 "Smart Validation Engine",
 "Digital Equity",
 "Infrastructure-Constrained Education"
 ],
 "communities": [],
-"version": "1.0.0",
+"version": "1.2.0",
 "language": "eng"
 }
