@@ -1,0 +1,6 @@
+Model,Accuracy,Macro_F1,Weighted_F1
+Random Forest,0.8,0.3911,0.8077
+XGBoost,0.8222,0.4048,0.8263
+LightGBM,0.8444,0.4576,0.8473
+Logistic Regression,0.6741,0.4697,0.7391
+Decision Stump (d=2),0.0963,0.1376,0.0321

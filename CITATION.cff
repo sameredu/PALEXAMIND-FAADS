@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+cff-version: 2.0.0
 message: "If you use this software, please cite it using the metadata below."
 
 type: software
@@ -24,9 +24,9 @@ url: "https://github.com/sameredu/PALEXAMIND-FAADS"
 
 license: "MIT"
 
-version: "1.2.0"
+version: 2.0.0
 
-date-released: "2026-06-15"
+date-released: '2026-07-11'
 
 keywords:
 

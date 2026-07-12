@@ -5,11 +5,22 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Dataset DOI](https://img.shields.io/badge/Dataset-10.5281%2Fzenodo.20366538-orange)](https://doi.org/10.5281/zenodo.20366538)
 [![Software DOI](https://img.shields.io/badge/Software-10.5281%2Fzenodo.20538921-blue)](https://doi.org/10.5281/zenodo.20538921)
-[![Version](https://img.shields.io/badge/Version-1.2.0-brightgreen)](https://github.com/sameredu/PALEXAMIND-FAADS)
+[![Version](https://img.shields.io/badge/Version-2.0.0-brightgreen)](https://github.com/sameredu/PALEXAMIND-FAADS)
 
 **Part of the PALEXAMIND PhD Project** — Islamic University of Gaza (IUG) / University College of Applied Sciences (UCAS), Gaza, Palestine
 
 ---
+
+> ## 🚀 v2.0.0 — Methodological Upgrade (July 2026)
+> This release upgrades the evaluation protocol to a fully **leakage-controlled design** developed during pre-submission methodological review:
+> - **Student-grouped cross-validation** (StratifiedGroupKFold): no student appears in both training and evaluation.
+> - **In-fold SMOTE**: oversampling is fitted inside training folds only; all metrics are computed on the natural class distribution.
+> - **Strictly-prior longitudinal features** (`RIF_prior`, `BFD_prior`): computed exclusively from sessions preceding the one being classified.
+> - **New transparent baselines** (logistic regression, shallow tree) and a **binary disruption-detection task** as the primary benchmark.
+>
+> Corrected results — binary disruption detection **ROC-AUC 0.828** (F1 0.565, XGBoost); exploratory five-class accuracy **82.8%** (macro-F1 0.439, LightGBM) — are produced by [`train_and_evaluate_v2.py`](train_and_evaluate_v2.py) and stored in [`results_v2/`](results_v2/). **These supersede the v1.x figures**, which were generated under the earlier protocol; v1.x scripts are retained for full auditability. Details: [`CHANGELOG_v2.md`](CHANGELOG_v2.md).
+
+
 
 ## Overview
 
@@ -17,7 +28,7 @@ PALEXAMIND-FAADS is a **Fairness-Aware Automated Decision System** (FAADS) that 
 
 Building on **Phase I** findings (Cohen's d = 2.641, U = 27.50, p < 0.0001), the system classifies five disruption patterns using **Random Forest**, **XGBoost**, and **LightGBM** classifiers, augmented by a novel **Behavioral Fairness Index (BFI)** and a three-tier **Smart Validation Engine (SVE)**.
 
-This repository contains the complete, reproducible Python implementation, the anonymized dataset reference, and all scripts that regenerate the tables and figures.
+This repository contains the complete, reproducible Python implementation, the anonymized dataset, and all scripts that regenerate the tables and figures.
 
 ---
 

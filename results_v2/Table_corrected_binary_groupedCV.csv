@@ -1,0 +1,5 @@
+Model,F1_disrupted,F1_sd,Precision,Recall,ROC_AUC,Accuracy
+Random Forest,0.531,0.051,0.55,0.531,0.834,0.871
+XGBoost,0.565,0.056,0.581,0.553,0.828,0.884
+LightGBM,0.525,0.028,0.546,0.51,0.826,0.874
+Logistic Regression,0.401,0.041,0.272,0.762,0.81,0.69
