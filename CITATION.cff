@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using the metadata below."
 
 type: software
 
-title: "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations"
+title: "PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints"
 
 authors:
 

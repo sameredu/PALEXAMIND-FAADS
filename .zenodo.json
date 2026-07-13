@@ -1,5 +1,5 @@
 {
-  "title": "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations",
+  "title": "PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints",
   "description": "PALEXAMIND-FAADS is a reproducible research software package accompanying Paper 2 of the PALEXAMIND PhD Project. The framework provides an infrastructure-aware and fairness-aware intervention system for Moodle-based e-examinations. It includes data preprocessing, behavioral feature engineering, Random Forest, XGBoost, and LightGBM classification models, the Behavioral Fairness Index (BFI), Smart Validation Engine (SVE), cross-validation experiments, ablation studies, BFI weight sensitivity analysis, SHAP-based interpretability analysis, and automated generation of all tables and figures reported in the paper. Version 1.2 adds an additional LightGBM baseline, a SHAP summary analysis, and a BFI weight sensitivity study.",
   "creators": [
     {

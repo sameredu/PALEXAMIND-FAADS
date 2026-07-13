@@ -1,103 +1,129 @@
 # PALEXAMIND-FAADS
-## AI-Driven Automated Fairness Intervention for Infrastructure-Constrained E-Examinations
+## A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://python.org)
+[![Version](https://img.shields.io/badge/Version-2.0.0-brightgreen)]()
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Dataset DOI](https://img.shields.io/badge/Dataset-10.5281%2Fzenodo.20366538-orange)](https://doi.org/10.5281/zenodo.20366538)
 [![Software DOI](https://img.shields.io/badge/Software-10.5281%2Fzenodo.20538921-blue)](https://doi.org/10.5281/zenodo.20538921)
-[![Version](https://img.shields.io/badge/Version-2.0.0-brightgreen)](https://github.com/sameredu/PALEXAMIND-FAADS)
-
-**Part of the PALEXAMIND PhD Project** — Islamic University of Gaza (IUG) / University College of Applied Sciences (UCAS), Gaza, Palestine
 
 ---
 
 > ## 🚀 v2.0.0 — Methodological Upgrade (July 2026)
-> This release upgrades the evaluation protocol to a fully **leakage-controlled design** developed during pre-submission methodological review:
-> - **Student-grouped cross-validation** (StratifiedGroupKFold): no student appears in both training and evaluation.
-> - **In-fold SMOTE**: oversampling is fitted inside training folds only; all metrics are computed on the natural class distribution.
-> - **Strictly-prior longitudinal features** (`RIF_prior`, `BFD_prior`): computed exclusively from sessions preceding the one being classified.
-> - **New transparent baselines** (logistic regression, shallow tree) and a **binary disruption-detection task** as the primary benchmark.
->
-> Corrected results — binary disruption detection **ROC-AUC 0.828** (F1 0.565, XGBoost); exploratory five-class accuracy **82.8%** (macro-F1 0.439, LightGBM) — are produced by [`train_and_evaluate_v2.py`](train_and_evaluate_v2.py) and stored in [`results_v2/`](results_v2/). **These supersede the v1.x figures**, which were generated under the earlier protocol; v1.x scripts are retained for full auditability. Details: [`CHANGELOG_v2.md`](CHANGELOG_v2.md).
+> This release upgrades the evaluation protocol to a fully **leakage-controlled design**. All results on this page are produced by [`train_and_evaluate_v2.py`](train_and_evaluate_v2.py) under the v2.0 protocol and **supersede the v1.x figures**, which are retained in the [Legacy v1.x Results](#legacy-v1x-results-superseded) section for auditability. Details: [`CHANGELOG_v2.md`](CHANGELOG_v2.md).
 
-
+---
 
 ## Overview
 
-PALEXAMIND-FAADS is a **Fairness-Aware Automated Decision System** (FAADS) that transitions from retrospective behavioral analytics to a proactive, **real-time-ready** fairness intervention architecture for Moodle-based electronic examinations.
+PALEXAMIND-FAADS is a fairness-aware decision-support framework that detects **infrastructure-induced disruption** in Moodle-based online examinations — distinguishing a student whose connection failed from a student who disengaged — using only the behavioral artifacts available in any standard Moodle deployment. Detected cases are routed through a three-tier **Smart Validation Engine (SVE)** governed by a composite **Behavioral Fairness Index (BFI)**, operationalizing *conservative autonomy*: automated action only at high confidence, human review for everything uncertain.
 
-Building on **Phase I** findings (Cohen's d = 2.641, U = 27.50, p < 0.0001), the system classifies five disruption patterns using **Random Forest**, **XGBoost**, and **LightGBM** classifiers, augmented by a novel **Behavioral Fairness Index (BFI)** and a three-tier **Smart Validation Engine (SVE)**.
+The framework is validated on 675 real examination records from 226 students at UCAS, Gaza — one of the most infrastructure-hostile assessment environments on record (connectivity routinely below 50 kbps) — with ground-truth labels cross-referenced against ISP connectivity interruption reports.
 
-This repository contains the complete, reproducible Python implementation, the anonymized dataset, and all scripts that regenerate the tables and figures.
-
----
-
-## What's New in v1.2
-
-- **LightGBM baseline** added alongside Random Forest and XGBoost (three independent classifier families).
-- **SHAP interpretability analysis** — model-agnostic, instance-level feature attribution with a summary plot.
-- **BFI weight sensitivity analysis** — robustness check across three weight configurations.
-- Updated `requirements.txt` (`shap`, `lightgbm`) and new `analysis/` scripts.
+**Phase II of the PALEXAMIND PhD research program.** Phase I (empirical foundation): [Research Square preprint](https://doi.org/10.21203/rs.3.rs-9843743/v1).
 
 ---
 
-## Key Results (Real Dataset — DWEB 1318, 226 students, 675 exam records)
+## What's New in v2.0
 
-### Model Comparison (identical pipeline: SMOTE, 80/20 stratified split, 5-fold CV, seed = 42)
+- **Leakage-controlled evaluation protocol** — all metrics computed on genuine, natural-distribution records
+- **Student-grouped cross-validation** (StratifiedGroupKFold): no student appears in both training and evaluation
+- **In-fold SMOTE**: oversampling fitted inside training folds only
+- **Strictly-prior longitudinal features** (`RIF_prior`, `BFD_prior`): computed exclusively from sessions preceding the one being classified
+- **Binary disruption detection** as the primary benchmark task
+- **Transparent baseline models** (logistic regression, depth-2 decision tree)
+- **Updated reproducibility pipeline** — single script regenerates all corrected results
+- **Corrected experimental results**, SHAP, ablation, and SVE/BFI sensitivity analyses
 
-| Model | Accuracy | Weighted F1 | CV F1 (5-fold) |
-|-------|----------|-------------|----------------|
-| Random Forest | 96.05% | 0.960 | 0.950 ± 0.010 |
-| XGBoost | 96.23% | 0.962 | 0.963 ± 0.010 |
-| **LightGBM (added in v1.2)** | **96.57%** | **0.966** | **0.962 ± 0.007** |
+---
 
-The three classifiers agree within a 0.52-percentage-point accuracy band, indicating the discriminative signal resides in the engineered behavioral features rather than any single model family.
+## Methodological Improvements in v2
 
-### Per-Pattern F1-Scores
+| Previous protocol (v1.x) | Updated protocol (v2.0) |
+|---|---|
+| Random record-level split | **Student-grouped split** (StratifiedGroupKFold) |
+| Global SMOTE (before split) | **Fold-only SMOTE** (training partition only) |
+| Mixed session history in RIF/BFD | **Strictly-prior history** (chronological exam order) |
+| Accuracy on balanced (partly synthetic) test set | **ROC-AUC / F1 on natural distribution** |
+| Multi-class only | **Binary primary + multi-class exploratory** |
+| Tree ensembles only | Ensembles **+ transparent baselines** |
 
-| Pattern | Description | RF F1 | XGB F1 |
-|---------|-------------|-------|--------|
-| P1 | Complete Disconnection | 0.925 | 0.932 |
-| P2 | Delayed Entry | 0.987 | 0.979 |
-| P3 | Partial Interruption | 0.912 | 0.922 |
-| P4 | Repeated Vulnerability | 0.991 | 0.991 |
-| Normal | No disruption | 0.987 | 0.987 |
+---
 
-### BFI Weight Sensitivity (v1.2)
+## Key Results (v2.0 — leakage-controlled, natural distribution)
+
+Dataset: DWEB 1318 — 226 students, 675 exam records (583 Normal, 92 disrupted: P1=33, P3=29, P4=24, P2=6).
+
+### Primary task — Binary disruption detection (student-grouped 5-fold CV)
+
+| Model | F1 (disrupted) | Precision | Recall | ROC-AUC | Accuracy |
+|---|---|---|---|---|---|
+| **XGBoost** | **0.565 ± 0.056** | 0.581 | 0.553 | **0.828** | 0.884 |
+| Random Forest | 0.531 ± 0.051 | 0.550 | 0.531 | 0.834 | 0.871 |
+| LightGBM | 0.525 ± 0.028 | 0.546 | 0.510 | 0.826 | 0.874 |
+| Logistic Regression (baseline) | 0.401 ± 0.041 | 0.272 | 0.762 | 0.810 | 0.690 |
+
+### Exploratory task — Five-class pattern discrimination (student-grouped 5-fold CV)
+
+| Model | Accuracy | Macro-F1 | Weighted F1 |
+|---|---|---|---|
+| **LightGBM** | **82.8% ± 1.7** | **0.439** | 0.839 |
+| XGBoost | 80.4% ± 3.0 | 0.421 | 0.826 |
+| Random Forest | 76.4% ± 2.2 | 0.399 | 0.798 |
+
+Minority disruption patterns are data-limited in the natural distribution (six real P2 sessions); pattern-level claims await multi-course data collection.
+
+### Feature attribution (v2.0 — leakage-free features)
+
+| Feature | Gini (RF) | Mean \|SHAP\| | Meaning |
+|---|---|---|---|
+| **IL — Initial Latency** | **0.329** (Rank 1) | 0.156 | Entry delay — primary disruption indicator |
+| **SER — Submission Efficiency** | 0.241 | **0.203** (Rank 1) | Response completeness ratio |
+| BFD_prior | 0.172 | 0.084 | Divergence from strictly-prior profile |
+| RIF_prior | 0.154 | 0.156 | Prior disrupted-exam count |
+| IGV | 0.105 | 0.071 | Unanswered-index-gap proxy |
+
+**Initial latency and submission efficiency emerge as the dominant behavioral signals**; the strictly-prior repeated-failure history contributes the largest single ablation gain (+0.129 ROC-AUC).
+
+### SVE / BFI simulation (v2.0 — n=110 scored-history records)
 
 | Weight config. (α/β/γ) | Automatic (%) | Review (%) | No action (%) | Mean BFI |
-|------------------------|---------------|------------|---------------|----------|
-| Original (0.33/0.33/0.34) | 81.5 | 15.6 | 3.0 | 0.856 |
-| Performance-weighted (0.50/0.25/0.25) | 84.6 | 11.7 | 3.7 | 0.877 |
-| Balanced-moderate (0.40/0.30/0.30) | 83.6 | 13.5 | 3.0 | 0.865 |
+|---|---|---|---|---|
+| Original (0.33/0.33/0.34) | **7.3** | **51.8** | 40.9 | 0.587 |
+| Performance-weighted (0.50/0.25/0.25) | 8.2 | 15.5 | 76.4 | 0.517 |
+| Balanced-moderate (0.40/0.30/0.30) | 8.2 | 25.5 | 66.4 | 0.558 |
 
-The intervention-tier distribution remains stable under reasonable weight perturbation, indicating the framework is not brittle with respect to the empirical weight choice.
-
-### SHAP Feature Attribution (v1.2)
-
-Mean absolute SHAP value (Random Forest, test set): **RIF (0.283) > IL (0.183) > SER (0.159) > BFD (0.063) > IGV (0.058)**, confirming Repeated Infrastructure Failures (RIF) as the dominant, directionally consistent predictive signal.
+The automatic tier is stable across weight configurations (7.3–8.2%); the engine escalates roughly half of scored disruption cases to human review — the intended *conservative autonomy* profile.
 
 ---
 
-## System Architecture
-
-The FAADS pipeline consists of four layers:
+## System Architecture (v2.0)
 
 ```
-Moodle Event Stream
-     |
-[1] Secure Data Acquisition  -> anonymized event logs (SHA-256 hashing)
-     |
-[2] Feature Engineering      -> V_i = {IGV, IL, SER, BFD, RIF}
-     |
-[3] Disruption Classification -> RF / XGBoost / LightGBM -> P_i
-     |
-[4] SVE Decision Engine + BFI -> BFI >= 0.80 Automatic | >= 0.60 Review | < 0.60 None
-     |
-    Golden Profile Update & Logging
+        Historical Moodle Sessions
+                    │
+     Strictly-Prior Feature Construction
+        (IGV, IL, SER, BFD_prior, RIF_prior)
+                    │
+      Student-Grouped Cross-Validation
+                    │
+          Training-Fold SMOTE
+                    │
+       Binary Disruption Detection
+        (RF / XGBoost / LightGBM
+         + transparent baselines)
+                    │
+      Behavioral Fairness Index (BFI)
+     BFI_i = a*P_i + b*R_i + g*(1 - BFD_i)
+                    │
+        Smart Validation Engine
+   +----------------+----------------+
+   |                |                |
+   v                v                v
+Automatic      Instructor        No action
+(BFI >= 0.80)  review flag      (BFI < 0.60)
+               (0.60-0.79)
 ```
-
-**BFI Formula:** `BFI_i = α·P_i + β·R_i + γ·(1 − BFD_i)`  (default: α = β = 0.33, γ = 0.34)
 
 ---
 
@@ -105,28 +131,25 @@ Moodle Event Stream
 
 ```
 PALEXAMIND-FAADS/
-├── feature_engineering.py          # Feature extraction from DWEB 1318 dataset
-├── train_and_analyze.py            # RF + XGBoost training, BFI, SVE pipeline
-├── analysis/
-│   ├── bfi_sensitivity.py          # BFI weight sensitivity analysis (v1.2)
-│   ├── shap_analysis.py            # SHAP interpretability + summary plot (v1.2)
-│   └── lightgbm_baseline.py        # LightGBM baseline comparison (v1.2)
-├── requirements.txt                # Python dependencies
-├── results/
-│   ├── Figure3_FeatureImportance_RealData.png
-│   ├── Figure4_SHAP_Summary_RF.png            # (v1.2)
-│   ├── Figure5_ConfusionMatrix_RealData.png
-│   ├── Figure6_ModelComparison.png
-│   ├── Table2_FAADS_RF_XGB.csv
-│   ├── Table_BFI_Sensitivity.csv              # (v1.2)
-│   ├── Table_LightGBM_Baseline.csv            # (v1.2)
-│   ├── Table_SHAP_ranking.csv                 # (v1.2)
-│   ├── FAADS_SVE_results.csv
-│   ├── classification_report_RF.csv
-│   ├── classification_report_XGB.csv
-│   └── processed_features_real.csv
-├── CITATION.cff
-├── .zenodo.json
+├── train_and_evaluate_v2.py        # * v2.0 leakage-controlled pipeline (authoritative)
+├── CHANGELOG_v2.md                 # * v2.0 protocol upgrades, documented in full
+├── results_v2/                     # * v2.0 corrected results (authoritative)
+│   ├── Table_corrected_binary_groupedCV.csv
+│   ├── Table_corrected_5class_groupedCV.csv
+│   ├── Table_corrected_5class_holdout.csv
+│   ├── Table_corrected_feature_importance.csv
+│   ├── classification_report_RF_natural.csv
+│   ├── corrected_features.csv      # dataset + strictly-prior features
+│   ├── Figure_corrected_confusion_matrix.png
+│   ├── Figure_corrected_feature_importance.png
+│   └── Figure_corrected_SHAP.png
+├── feature_engineering.py          # v1.x feature extraction (legacy, retained for audit)
+├── train_and_analyze.py            # v1.x pipeline (legacy, retained for audit)
+├── analysis/                       # v1.x additional analyses (legacy)
+├── results/                        # v1.x results (legacy — superseded)
+├── requirements.txt
+├── CITATION.cff                    # v2.0.0
+├── .zenodo.json                    # v2.0.0
 └── README.md
 ```
 
@@ -144,38 +167,42 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Step 1 — Feature Engineering
+### Reproduce all v2.0 results (single command)
+
 ```bash
-python feature_engineering.py
-# Output: results/processed_features_real.csv
+python train_and_evaluate_v2.py
+# Outputs -> results_v2/ : binary + 5-class tables, per-class report,
+#                          corrected feature importance, confusion matrix, SHAP figure
 ```
 
-### Step 2 — Train Models + Run FAADS Pipeline
-```bash
-python train_and_analyze.py
-# Outputs: figures, classification reports, SVE results
-```
+### Quick example
 
-### Step 3 — Additional Analyses (v1.2)
-```bash
-cd analysis
-python lightgbm_baseline.py     # LightGBM baseline -> ../results/Table_LightGBM_Baseline.csv
-python shap_analysis.py         # SHAP summary plot -> ../results/Figure4_SHAP_Summary_RF.png
-python bfi_sensitivity.py       # BFI sensitivity  -> ../results/Table_BFI_Sensitivity.csv
-```
-
-### Quick Example
 ```python
 import pandas as pd
 
-df = pd.read_csv('results/processed_features_real.csv')
-X = df[['IGV', 'IL', 'SER', 'BFD', 'RIF']]
-y = df['Label']
+df = pd.read_csv('results_v2/corrected_features.csv')
+X = df[['IGV', 'IL', 'SER', 'BFD_prior', 'RIF_prior']]   # strictly-prior features
+y = (df['Label'] != 'Normal').astype(int)                  # binary primary task
 
 # Behavioral Fairness Index (BFI)
 alpha, beta, gamma = 0.33, 0.33, 0.34
 # BFI_i = alpha*P_i + beta*R_i + gamma*(1 - BFD_i)
 ```
+
+### Legacy v1.x scripts
+
+`feature_engineering.py`, `train_and_analyze.py`, and `analysis/` reproduce the superseded v1.x results and are retained unmodified for auditability only.
+
+---
+
+## Legacy v1.x Results (superseded)
+
+<details>
+<summary>Click to expand — v1.x figures, retained for auditability. <b>Do not cite.</b></summary>
+
+The v1.x protocol applied SMOTE before the train/test split and computed RIF/BFD over each student's full session history (including the classified session). Under that protocol the models reported ~96% five-class accuracy (RF 96.05%, XGBoost 96.23%, LightGBM 96.57%; per-pattern F1 0.91-0.99), RIF-dominant feature importance (34.9-40.4%), and an SVE distribution of 65.2% / 10.3% / 24.5%. These figures are artifacts of the evaluation protocol and are **superseded by the v2.0 results above** (see `CHANGELOG_v2.md`, UPG-1 and UPG-2). The v1.x scripts and outputs remain in `results/` and `analysis/` for verification.
+
+</details>
 
 ---
 
@@ -196,20 +223,22 @@ The DWEB 1318 anonymized Moodle examination dataset is available on Zenodo:
 }
 ```
 
+All student and section identifiers are irreversibly pseudonymized (SHA-256 with institutional salt). Collection and publication are covered by IUG Ethical Research Committee approval no. 2026/29.
+
 ---
 
 ## Citation
 
 If you use this software, please cite:
 
-> Yaghi, S., & AbuSamra, A. A. (2026). *PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations* (Version 1.2.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.20538921
+> Yaghi, S., & AbuSamra, A. A. (2026). *PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints* (Version 2.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.20538921
 
 ```bibtex
 @software{yaghi2026faads,
   author    = {Yaghi, Samer and AbuSamra, Aiman Ahmed},
-  title     = {{PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework
-               for Infrastructure-Constrained E-Examinations}},
-  version   = {1.2.0},
+  title     = {{PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework
+               for Fairness in Online Examinations under Infrastructure Constraints}},
+  version   = {2.0.0},
   year      = {2026},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.20538921},
@@ -217,9 +246,9 @@ If you use this software, please cite:
 }
 ```
 
-### Phase I (Foundational Study)
+The concept DOI `10.5281/zenodo.20538921` always resolves to the latest release; the version-specific DOI for v2.0.0 is minted automatically by Zenodo upon release.
 
-The empirical foundation for this work is established in Phase I, available as a preprint:
+### Phase I (Foundational Study)
 
 > Yaghi, S., & AbuSamra, A. A. (2026). *Fairness-Aware Learning Analytics for Detecting Internet-Induced Inequality in Moodle-Based E-Examinations.* Research Square (preprint). https://doi.org/10.21203/rs.3.rs-9843743/v1
 
@@ -261,4 +290,5 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 ## Acknowledgements
 
 This work is part of the **PALEXAMIND PhD Project** at the Islamic University of Gaza (IUG) and University College of Applied Sciences (UCAS), Gaza, Palestine.
+Ethics approval: IUG Ethical Research Committee, approval no. 2026/29 (30 June 2026).
 Dataset DOI: [10.5281/zenodo.20366538](https://doi.org/10.5281/zenodo.20366538)
