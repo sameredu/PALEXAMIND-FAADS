@@ -1,6 +1,12 @@
 {
   "title": "PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints",
-  "description": "PALEXAMIND-FAADS is a reproducible research software package accompanying Paper 2 of the PALEXAMIND PhD Project. The framework provides an infrastructure-aware and fairness-aware intervention system for Moodle-based e-examinations. It includes data preprocessing, behavioral feature engineering, Random Forest, XGBoost, and LightGBM classification models, the Behavioral Fairness Index (BFI), Smart Validation Engine (SVE), cross-validation experiments, ablation studies, BFI weight sensitivity analysis, SHAP-based interpretability analysis, and automated generation of all tables and figures reported in the paper. Version 1.2 adds an additional LightGBM baseline, a SHAP summary analysis, and a BFI weight sensitivity study.",
+  "version": "2.1.0",
+  "publication_date": "2026-11-12",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "language": "eng",
+  "description": "<p>PALEXAMIND-FAADS is research software for machine learning on Moodle examination records collected under unreliable connectivity. Version 2.1.0 is an audit release. It adds a script that rebuilds the features from the archived dataset (doi:10.5281/zenodo.23643942) and verifies them against the committed copy, and a script that regenerates every number, table and figure of the accompanying manuscript.</p><p>The analysis covers four parts: (1) a comparison of a naive and a leakage-controlled evaluation protocol for the released five-class pipeline; (2) circularity diagnostics for detecting disruption from features of the same session when the label is a rule on that session; (3) prospective prediction of substantial disruption from information available before a sitting, against an examination-type baseline; and (4) a selective-triage analysis of the predicted risk.</p><p>The v2.0 binary benchmark and the v2.0 SVE/BFI simulation are withdrawn; the reasons are documented in CHANGELOG_v2.1.md. All earlier code and outputs are retained unchanged for auditability.</p>",
   "creators": [
     {
       "name": "Yaghi, Samer",
@@ -13,27 +19,29 @@
       "orcid": "0000-0003-4652-3993"
     }
   ],
-  "license": "MIT",
-  "upload_type": "software",
-  "access_right": "open",
   "keywords": [
-    "PALEXAMIND",
-    "FAADS",
-    "Learning Analytics",
-    "Educational Fairness",
+    "learning analytics",
+    "data leakage",
+    "machine learning evaluation",
+    "weak labels",
+    "online examinations",
+    "algorithmic fairness",
+    "selective automation",
     "Moodle",
-    "E-Examinations",
-    "Random Forest",
-    "XGBoost",
-    "LightGBM",
-    "SHAP",
-    "Behavioral Fairness Index",
-    "Smart Validation Engine",
-    "Digital Equity",
-    "Infrastructure-Constrained Education"
+    "PALEXAMIND"
   ],
-  "communities": [],
-  "version": "2.0.0",
-  "language": "eng",
-  "publication_date": "2026-07-11"
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23643942",
+      "relation": "references",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.1007/s44217-026-02182-6",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ]
 }

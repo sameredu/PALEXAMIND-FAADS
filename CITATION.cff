@@ -1,52 +1,53 @@
-cff-version: 2.0.0
+cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
-
 type: software
-
 title: "PALEXAMIND-FAADS: A Longitudinal Machine Learning Framework for Fairness in Online Examinations under Infrastructure Constraints"
-
-authors:
-
-* family-names: "Yaghi"
-  given-names: "Samer"
-  email: "[syaghi@ucas.edu.ps](mailto:syaghi@ucas.edu.ps)"
-  orcid: "https://orcid.org/0009-0001-0268-7163"
-  affiliation: "University College of Applied Sciences (UCAS), Gaza, Palestine"
-
-* family-names: "AbuSamra"
-  given-names: "Aiman Ahmed"
-  email: "[aasamra@iugaza.edu.ps](mailto:aasamra@iugaza.edu.ps)"
-  affiliation: "Islamic University of Gaza, Palestine"
-
+version: 2.1.0
+date-released: "2026-11-12"
+license: MIT
 repository-code: "https://github.com/sameredu/PALEXAMIND-FAADS"
-
 url: "https://github.com/sameredu/PALEXAMIND-FAADS"
-
-license: "MIT"
-
-version: 2.0.0
-
-date-released: '2026-07-11'
-
-keywords:
-
-* Learning Analytics
-* Educational Fairness
-* E-Examinations
-* Moodle
-* Random Forest
-* XGBoost
-* Behavioral Fairness Index
-* Digital Equity
-* PALEXAMIND
-* FAADS
-
-preferred-citation:
-type: article
 authors:
-- family-names: "Yaghi"
-given-names: "Samer"
-- family-names: "AbuSamra"
-given-names: "Aiman Ahmed"
-title: "PALEXAMIND-FAADS: A Longitudinal Fairness-Aware Framework for Infrastructure-Constrained E-Examinations"
-year: 2026
+  - family-names: Yaghi
+    given-names: Samer
+    email: syaghi@ucas.edu.ps
+    orcid: "https://orcid.org/0009-0001-0268-7163"
+    affiliation: "University College of Applied Sciences (UCAS), Gaza, Palestine"
+  - family-names: AbuSamra
+    given-names: Aiman Ahmed
+    email: aasamra@iugaza.edu.ps
+    orcid: "https://orcid.org/0000-0003-4652-3993"
+    affiliation: "Islamic University of Gaza, Palestine"
+keywords:
+  - learning analytics
+  - data leakage
+  - machine learning evaluation
+  - weak labels
+  - online examinations
+  - algorithmic fairness
+  - Moodle
+references:
+  - type: data
+    title: "Web Databases: Anonymized Moodle Examination Dataset for Fairness-Aware Learning Analytics"
+    version: 1.1.0
+    authors:
+      - family-names: Yaghi
+        given-names: Samer
+      - family-names: AbuSamra
+        given-names: Aiman Ahmed
+    year: 2026
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.23643942
+  - type: article
+    title: "Fairness aware learning analytics for identifying internet induced inequality in online examinations"
+    authors:
+      - family-names: Yaghi
+        given-names: Samer
+      - family-names: AbuSamra
+        given-names: Aiman Ahmed
+    journal: "Discover Education"
+    volume: 5
+    start: 1009
+    year: 2026
+    doi: 10.1007/s44217-026-02182-6
