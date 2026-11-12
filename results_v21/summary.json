@@ -1,0 +1,167 @@
+{
+ "data": {
+  "sessions": 675,
+  "students": 226,
+  "substantial": 64,
+  "prevalence": 0.0948,
+  "complete": 39,
+  "students_complete": 35,
+  "students_any": 56,
+  "students_repeat": 8,
+  "rate_practical": 0.2163,
+  "n_practical": 245,
+  "rate_theory": 0.0256,
+  "n_theory": 430,
+  "sessions_with_history": 449,
+  "label_counts": {
+   "Normal": 583,
+   "P1": 33,
+   "P3": 29,
+   "P4": 24,
+   "P2": 6
+  },
+  "p4_no_blank": 20,
+  "ser_zero_practical": 1.0,
+  "corr_SER_practical": -0.974,
+  "corr_IL_practical": 0.729
+ },
+ "naive_rf_importance": {
+  "IGV": 0.075,
+  "IL": 0.242,
+  "SER": 0.179,
+  "BFD": 0.141,
+  "RIF": 0.363
+ },
+ "naive_test_n": 583,
+ "naive_resampled_n": 2915,
+ "naive_real_n": 675,
+ "majority_class_accuracy": 0.8637,
+ "prevalence_AP_baseline": 0.0948,
+ "brier_prevalence": 0.0858,
+ "auc_indicator": 0.7569,
+ "ap_indicator": 0.1954,
+ "delta_M2_vs_M0": [
+  0.0064,
+  -0.0294,
+  0.0434,
+  0.0548,
+  0.0023,
+  0.1301
+ ],
+ "delta_M3_vs_M0": [
+  -0.0255,
+  -0.0568,
+  0.0049,
+  0.0346,
+  -0.0103,
+  0.093
+ ],
+ "delta_M4_vs_M3": [
+  0.033,
+  0.004,
+  0.0656,
+  0.0312,
+  -0.0298,
+  0.1064
+ ],
+ "delta_M4_vs_M0": [
+  0.0075,
+  -0.0259,
+  0.0413,
+  0.0658,
+  0.0084,
+  0.146
+ ],
+ "auc_ci": {
+  "M0 Examination type only (logistic)": [
+   0.607,
+   0.758
+  ],
+  "M1 Individual history only (logistic)": [
+   0.529,
+   0.685
+  ],
+  "M2 Type + individual history (logistic)": [
+   0.698,
+   0.823
+  ],
+  "M3 Type + sitting position (logistic)": [
+   0.657,
+   0.799
+  ],
+  "M4 Type + position + history: logistic regression": [
+   0.695,
+   0.828
+  ],
+  "M4 Type + position + history: random forest": [
+   0.7,
+   0.829
+  ],
+  "M4 Type + position + history: XGBoost": [
+   0.69,
+   0.824
+  ],
+  "M4 Type + position + history: LightGBM": [
+   0.694,
+   0.825
+  ],
+  "indicator": [
+   0.704,
+   0.805
+  ]
+ },
+ "within_type": {
+  "practical": {
+   "n": 238,
+   "events": 50,
+   "AUC_M2": 0.559,
+   "with_prior": [
+    7,
+    34,
+    0.206
+   ],
+   "without_prior": [
+    43,
+    204,
+    0.211
+   ],
+   "fisher_p": 1.0
+  },
+  "theory": {
+   "n": 211,
+   "events": 8,
+   "AUC_M2": 0.514,
+   "with_prior": [
+    1,
+    32,
+    0.031
+   ],
+   "without_prior": [
+    7,
+    179,
+    0.039
+   ],
+   "fisher_p": 1.0
+  }
+ },
+ "repeat_permutation": {
+  "observed": 8,
+  "expected": 6.36,
+  "p_ge": 0.2734,
+  "q025": 3.0,
+  "q975": 10.0
+ },
+ "temporal_test_prevalence": 0.1098,
+ "triage_thresholds": [
+  0.095,
+  0.284
+ ],
+ "section_flag_chi2": [
+  0.553,
+  0.968
+ ],
+ "section_recall_chi2": [
+  8.377,
+  0.079
+ ]
+}

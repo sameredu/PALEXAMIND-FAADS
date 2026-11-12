@@ -1,0 +1,7 @@
+Protocol,Model,Accuracy,Macro_F1,n_test,Accuracy_sd,Macro_F1_sd
+"Naive (oversample, then split; whole-history features)",Random Forest,0.9554,0.9555,583,,
+"Naive (oversample, then split; whole-history features)",XGBoost,0.9657,0.9656,583,,
+"Naive (oversample, then split; whole-history features)",LightGBM,0.9623,0.9622,583,,
+"Leakage-controlled (student-grouped folds, in-fold oversampling, prior-only features)",Random Forest,0.7644,0.4065,675,0.0275,0.0534
+"Leakage-controlled (student-grouped folds, in-fold oversampling, prior-only features)",XGBoost,0.8044,0.4208,675,0.0299,0.0493
+"Leakage-controlled (student-grouped folds, in-fold oversampling, prior-only features)",LightGBM,0.8281,0.4393,675,0.017,0.0462

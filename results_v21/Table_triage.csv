@@ -1,0 +1,4 @@
+Tier,Sessions,Share_pct,Disrupted,Observed_rate_pct,Share_of_disruptions_pct
+Tier 1: high risk (p >= 3 x base rate),16,2.4,5,31.2,7.8
+Tier 2: elevated risk (base rate <= p < 3 x base rate),226,33.5,47,20.8,73.4
+Tier 3: low risk (p < base rate),433,64.1,12,2.8,18.8

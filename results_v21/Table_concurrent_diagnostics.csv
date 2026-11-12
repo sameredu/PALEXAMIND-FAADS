@@ -1,0 +1,6 @@
+Setting,AUC,AUC_sd,AP,AP_sd,Brier
+"Released feature set, released target (P1-P4 vs Normal)",0.8295,0.009,0.587,0.013,0.1053
+"Released feature set, substantial disruption",0.8912,0.0066,0.4785,0.0243,0.0911
+Examination type only,0.7572,0.0005,0.1978,0.0014,0.0776
+Answered share only (SER as defined),1.0,0.0,1.0,0.0,0.0001
+IGV + IL + answered share,1.0,0.0,1.0,0.0,0.0017

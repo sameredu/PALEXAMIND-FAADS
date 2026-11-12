@@ -1,0 +1,7 @@
+Model,n_train,n_test,events_test,AUC,AP,Brier
+M0 Examination type only (logistic),329,346,38,0.666,0.1607,0.1068
+M2 Type + individual history (logistic),329,346,38,0.7112,0.2224,0.1157
+M4 Type + position + history: logistic regression,329,346,38,0.6376,0.2136,0.1627
+M4 Type + position + history: random forest,329,346,38,0.6155,0.1515,0.1234
+M4 Type + position + history: XGBoost,329,346,38,0.6857,0.1978,0.1182
+M4 Type + position + history: LightGBM,329,346,38,0.6697,0.1928,0.1192

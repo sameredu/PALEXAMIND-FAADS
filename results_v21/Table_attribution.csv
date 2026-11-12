@@ -1,0 +1,6 @@
+Feature,Std_coefficient,Odds_ratio_per_SD,Mean_abs_SHAP_XGB
+practical,1.248,3.48,1.275
+n_prior,-0.273,0.76,0.24
+dis_prior,-0.902,0.41,0.004
+blank_prior_mean,0.206,1.23,0.384
+blank_prior_max,0.815,2.26,0.146
